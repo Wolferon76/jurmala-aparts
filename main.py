@@ -29,24 +29,58 @@ while True:
 
     if choice == '1':
         # https://www.w3schools.com/python/python_lists_access.asp
+        number = int(input("write the apartsment number: "))
+        print(apartments[number])
         pass
     elif choice == '2':
         # https://www.w3schools.com/python/python_lists_sort.asp
+        def sort_price(apartments):
+            return int(apartments[-1])
+        apartments.sort(key = sort_price, reverse = True)
+        print(apartments[:11])
+       
+    
         pass
     elif choice == '3':
         # https://www.w3schools.com/python/python_lists_sort.asp
+        def sort_price(apartment):
+            return int(apartment[-1])
+        apartments.sort(key = sort_price)
+        print(apartments[:11])
         pass
     elif choice == '4':
         # https://www.w3schools.com/python/python_lists_comprehension.asp
         # https://www.w3schools.com/python/python_lists_access.asp - Range of Indexes
+        newlist = []
+        our_choice = int(input("Please, write your limit: "))
+        for apartment in apartments:
+            if int(apartment[-1]) <= our_choice:
+                newlist.append(apartment)
+        print(newlist)
         pass
     elif choice == '5':
         # https://www.w3schools.com/python/python_lists_comprehension.asp
         # https://www.w3schools.com/python/python_lists_access.asp - Range of Indexes
+        newlist = []
+        our_choice = int(input("Please, write your limit: "))
+        for apartment in apartments:
+            if int(apartment[-1]) >= our_choice:
+                newlist.append(apartment)
+        print(newlist)
         pass
 
     elif choice == '6':
-        # 
+        newlist = []
+        our_choice = int(input("Please, write your limit: "))
+        mode = input("Please, write what you need: higher(h) or lower(l): ")
+        for apartment in apartments:
+            if mode == "h":
+                if int(apartment[-1]) >= our_choice:
+                    newlist.append(apartment)
+            if mode == "l":
+                if int(apartment[-1]) <= our_choice:
+                    newlist.append(apartment)
+        rint(newlist)
         pass
     elif choice == '7':
         print("Exiting")
